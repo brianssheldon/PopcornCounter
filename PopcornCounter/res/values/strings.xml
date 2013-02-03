@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Popcorn Sales</string>
+    <string name="app_name">Popcorn Counter</string>
+    <string name="popcorn_sales">Popcorn Sales</string>
+    <string name="plus_sign">+</string>
+    <string name="_greaterthan"> ></string>
+    <string name="_arrows">>>></string>
+    <string name="popcorn">Popcorn for</string>
+    <string name="save">save</string>
+    <string name="exit">exit</string>
+    <string name="add_a_person">Add a Person</string>
+    <string name="savepopcornlist">savePopcornList</string>
+    <string name="exitPopcornList">exitPopcornList</string>
+    <string name="update_popcorn_list">Update Popcorn List</string>
+    <string name="contact_list">Contact List</string>
+
+</resources>

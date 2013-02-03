@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/myshape"
+    android:id="@+id/rlpopcornrow">
+
+    <TextView
+        android:id="@+id/popcornrowdesc"
+        android:layout_width="110sp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5sp"/>
+
+    <TextView
+        android:id="@+id/popcornrowprice"
+        android:layout_width="35sp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/popcornrowdesc"
+        android:layout_centerVertical="true"/>
+    
+    <TextView
+        android:id="@+id/popcornrowtimes"
+        android:layout_width="10sp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/popcornrowprice"
+        android:layout_centerVertical="true"
+        android:text="*"/>
+    
+    <TextView
+        android:id="@+id/popcornrowquantity"
+        android:layout_width="20sp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/popcornrowtimes"/>
+    
+    <TextView
+        android:id="@+id/popcornrowequals"
+        android:layout_width="20sp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/popcornrowquantity"
+        android:text="= $"/>
+    
+    <TextView
+        android:id="@+id/popcornrowtotalcost"
+        android:layout_width="45sp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/popcornrowequals"/>
+    
+    <Button
+        android:id="@+id/popcornrowplus"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_marginTop="3sp"
+        android:layout_toRightOf="@+id/popcornrowtotalcost"
+        android:text="+"/>
+    
+    <Button
+        android:id="@+id/popcornrowminus"
+        android:layout_width="35sp"
+        android:layout_height="35sp"
+        android:layout_marginTop="3sp"
+        android:layout_toRightOf="@+id/popcornrowplus"
+        android:text="-"/>
+     
+</RelativeLayout>
