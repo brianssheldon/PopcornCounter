@@ -15,7 +15,7 @@ public class PopcornSold implements Serializable
 	public PopcornSold()
 	{
 		popcornSoldList = new ArrayList<Popcorn>();
-		name = "Long press to delete";
+		name = "";
 		address1 = "";
 		address2 = "";
 		phone = "";

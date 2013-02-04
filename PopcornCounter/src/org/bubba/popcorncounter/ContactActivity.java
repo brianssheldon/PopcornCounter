@@ -1,11 +1,6 @@
 package org.bubba.popcorncounter;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -25,8 +20,7 @@ import android.widget.RelativeLayout;
 
 public class ContactActivity extends Activity
 {
-	private static final String CONTACT_LIST = "ContactList";
-	ArrayList<Contact> contactList;
+	ArrayList<PopcornSold> contactList;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -38,12 +32,12 @@ public class ContactActivity extends Activity
 	private void populateScreen()
 	{
 		setContentView(R.layout.contactlist);
+		contactList = PopcornCounterActivity.readGsFilex(this);
 		
-		readContactFile();
-
+		
 		LinearLayout ll = (LinearLayout) findViewById(R.id.updateContactListList);
 
-		populateRow(ll, new Contact());
+		populateRow(ll, new PopcornSold());
 		
 		for (int i = 0; i < contactList.size(); i++)
 		{
@@ -54,7 +48,7 @@ public class ContactActivity extends Activity
         makeEmailButtonListener();
 	}
 
-	private void populateRow(LinearLayout ll, Contact contact)
+	private void populateRow(LinearLayout ll, PopcornSold contact)
 	{
 		LayoutInflater linflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		RelativeLayout rl = (RelativeLayout) linflater.inflate(R.layout.contactrow, null);
@@ -67,7 +61,7 @@ public class ContactActivity extends Activity
 		{
 			public boolean onLongClick(View v)
 			{
-//				final View vv = v;
+				final View vv = v;
 				
 		        new AlertDialog.Builder(v.getContext())
 		        .setIcon(android.R.drawable.ic_dialog_alert)
@@ -83,23 +77,18 @@ public class ContactActivity extends Activity
 
 					private void deleteFromContact(String name)
 					{
-						Contact contact = findContact(name);
-						if(contact == null)
-						{
-							
-						        
-						}
-						else
+						PopcornSold contact = findContact(name);
+						if(contact != null)
 						{
 							contactList.remove(contact);
-							saveContactFile();
+							PopcornCounterActivity.saveGsFilex(vv.getContext(), contactList);
 						}
 					}
 
-					private Contact findContact(String name) {
-						for (Iterator<Contact> iterator = contactList.iterator(); iterator.hasNext();)
+					private PopcornSold findContact(String name) {
+						for (Iterator<PopcornSold> iterator = contactList.iterator(); iterator.hasNext();)
 						{
-							Contact contact = iterator.next();
+							PopcornSold contact = iterator.next();
 							if(contact.getName().equals(name)) return contact;
 						}
 						return null;
@@ -118,59 +107,59 @@ public class ContactActivity extends Activity
 		tvName.setText(contact.getName());
 		tvAdd1.setText(contact.getAddress1());
 		tvAdd2.setText(contact.getAddress2());
-		tvPhoneNumber.setText(contact.getPhoneNumber());
+		tvPhoneNumber.setText(contact.getPhone());
 		
 		ll.addView(rl);
 	}
 
-	void readContactFile()
-	{
-		try
-		{
-			FileInputStream fis = openFileInput(CONTACT_LIST);
-	    	ObjectInputStream in = new ObjectInputStream(fis);
-	    	contactList = (ArrayList<Contact>) in.readObject();
-		}
-		catch (Exception e)
-		{
-			try
-			{
-				contactList = new ArrayList<Contact>();
-				
-				FileOutputStream fos = openFileOutput(CONTACT_LIST, Context.MODE_PRIVATE);
-				ObjectOutputStream out = new ObjectOutputStream(fos);
-				out.writeObject(contactList);
-			}
-			catch (Exception e2)
-			{
-				e2.printStackTrace();
-			}
-		}
-		
-		if(contactList.size() > 0)
-		{
-			Collections.sort(contactList);
-		}
-	}
+//	void readContactFile()
+//	{
+//		try
+//		{
+//			FileInputStream fis = openFileInput(CONTACT_LIST);
+//	    	ObjectInputStream in = new ObjectInputStream(fis);
+//	    	contactList = (ArrayList<Contact>) in.readObject();
+//		}
+//		catch (Exception e)
+//		{
+//			try
+//			{
+//				contactList = new ArrayList<Contact>();
+//				
+//				FileOutputStream fos = openFileOutput(CONTACT_LIST, Context.MODE_PRIVATE);
+//				ObjectOutputStream out = new ObjectOutputStream(fos);
+//				out.writeObject(contactList);
+//			}
+//			catch (Exception e2)
+//			{
+//				e2.printStackTrace();
+//			}
+//		}
+//		
+//		if(contactList.size() > 0)
+//		{
+//			Collections.sort(contactList);
+//		}
+//	}
 	
-	void saveContactFile()
-	{
-		if(contactList.size() > 0)
-		{
-			Collections.sort(contactList);
-		}
-		
-		try
-		{
-			FileOutputStream fos = openFileOutput(CONTACT_LIST, Context.MODE_PRIVATE);
-			ObjectOutputStream out = new ObjectOutputStream(fos);
-			out.writeObject(contactList);
-		}
-		catch (Exception e2)
-		{
-			e2.printStackTrace();
-		}
-	}
+//	void saveContactFile()
+//	{
+//		if(contactList.size() > 0)
+//		{
+//			Collections.sort(contactList);
+//		}
+//		
+//		try
+//		{
+//			FileOutputStream fos = openFileOutput(CONTACT_LIST, Context.MODE_PRIVATE);
+//			ObjectOutputStream out = new ObjectOutputStream(fos);
+//			out.writeObject(contactList);
+//		}
+//		catch (Exception e2)
+//		{
+//			e2.printStackTrace();
+//		}
+//	}
 	
 	private void makeEmailButtonListener()
 	{
@@ -193,7 +182,7 @@ public class ContactActivity extends Activity
 			{
 				StringBuffer emailSB = new StringBuffer();
 				
-				for (Iterator<Contact> iterator = contactList.iterator(); iterator.hasNext();)
+				for (Iterator<PopcornSold> iterator = contactList.iterator(); iterator.hasNext();)
 				{
 					emailSB.append(iterator.next().toString());
 				}
@@ -212,7 +201,7 @@ public class ContactActivity extends Activity
             {
                 LinearLayout ll = (LinearLayout) findViewById(R.id.updateContactListList);
                 int x = ll.getChildCount();
-                contactList = new ArrayList<Contact>();
+                contactList = new ArrayList<PopcornSold>();
                 
                 for (int i = 0; i < x; i++)
 				{
@@ -233,26 +222,48 @@ public class ContactActivity extends Activity
 					String phone = phoneView.getText().toString();
 					if(phone == null) phone = "";
 					
-					Contact contact = new Contact();
+					PopcornSold contact = new PopcornSold();
 					contact.setName(name);
 					contact.setAddress1(add1);
 					contact.setAddress2(add2);
-					contact.setPhoneNumber(phone);
+					contact.setPhone(phone);
+					if(contact.getPopcornSoldList() == null || contact.getPopcornSoldList().isEmpty())
+					{
+						contact.setPopcornSoldList(getListOfPopcorn());
+					}
 					
 					contactList.add(contact);
 				}
                 
-                saveContactFile();
+				PopcornCounterActivity.saveGsFilex(v.getContext(), contactList);
                 
         		ll.removeAllViews();	// remove all views
 
-        		populateRow(ll, new Contact());
+        		populateRow(ll, new PopcornSold());
         		
-        		for(Iterator<Contact> iterator = contactList.iterator(); iterator.hasNext();)
+        		for(Iterator<PopcornSold> iterator = contactList.iterator(); iterator.hasNext();)
         		{
         			populateRow(ll, iterator.next());
         		}
             }
         });
+	}
+	
+	ArrayList<Popcorn> getListOfPopcorn()
+	{
+		PopcornDao popcornDao = new PopcornDao();
+		ArrayList<Popcorn> theList = popcornDao.readFile(this);
+		ArrayList<Popcorn> newList = new ArrayList<Popcorn>();
+		
+		for(Iterator<Popcorn> iter = theList.iterator(); iter.hasNext();)
+		{
+			Popcorn thepc = iter.next();
+			Popcorn pc = new Popcorn();
+			pc.setName(thepc.getName());
+			pc.setQuantity(thepc.getQuantity());
+			pc.setCost(thepc.getCost());
+			newList.add(thepc);
+		}
+		return newList;
 	}
 }

@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class AddPersonActivity extends Activity
+public class ZZZ_Delete_meeee_AddPersonActivity extends Activity
 {
 	@Override
     public void onCreate(Bundle savedInstanceState)
