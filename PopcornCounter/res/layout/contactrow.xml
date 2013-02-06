@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/myshape"
+    android:background="#191970"
     android:id="@+id/rlcontactrow">
 
     <EditText

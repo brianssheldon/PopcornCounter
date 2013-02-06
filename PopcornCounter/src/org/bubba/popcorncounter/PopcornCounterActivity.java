@@ -121,23 +121,26 @@ public class PopcornCounterActivity extends Activity {
 		return sb.toString();
 	}
 
-	void populateScrollView(LinearLayout mainLL) {
+	void populateScrollView(LinearLayout mainLL)
+	{
 		LayoutInflater linflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		int i = -1;
 
-		while (mainLL.getChildCount() > 0) {
+		while (mainLL.getChildCount() > 0)
+		{
 			mainLL.removeViewAt(0);
 		}
 
 		readGsFile();
-
-		for (Iterator<PopcornSold> iter = arrayList.iterator(); iter.hasNext();) {
+		
+		for (Iterator<PopcornSold> iter = arrayList.iterator(); iter.hasNext();)
+		{
 			i = i + 1;
 			PopcornSold gscs = (PopcornSold) iter.next();
 			final PopcornSold gscsFinal = gscs;
 
 			View customView = linflater.inflate(R.layout.person, null);
-
+			
 			TextView tv = (TextView) customView.findViewById(R.id.textView);
 			tv.setId(i);
 			tv.setText(gscs.getName());
@@ -191,8 +194,12 @@ public class PopcornCounterActivity extends Activity {
 					startActivityForResult(myIntent, 100);
 				}
 			});
-
+			
 			mainLL.addView(customView);
+			
+			LayoutInflater x = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			TextView tvLine = (TextView) x.inflate(R.layout.thelineb, null);
+			mainLL.addView(tvLine);
 		}
 	}
 

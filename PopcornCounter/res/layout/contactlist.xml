@@ -3,13 +3,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@drawable/myshape">
+    android:background="#191970">	<!--  BLUE -->
     
     <RelativeLayout 
         android:layout_width="fill_parent"
         android:layout_height="50sp"
-    	android:background="@drawable/myshape"
-        android:orientation="horizontal">
+    	android:background="#FFD700"	
+        android:orientation="horizontal">  <!--  GOLD  -->
     
 	    <Button android:id="@+id/savecontactlist"
             android:layout_width="wrap_content"
@@ -24,8 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-	        android:textSize="20sp"
-	        android:textColor="#00FF00"
+            android:textSize="25dp"
+	        android:textColor="#191970"
 	        android:text="@string/contact_list"/>
 		
 		<Button android:id="@+id/emailcontactlist"

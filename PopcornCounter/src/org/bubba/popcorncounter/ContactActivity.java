@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class ContactActivity extends Activity
 {
@@ -55,7 +56,6 @@ public class ContactActivity extends Activity
 
 		final EditText tvName = (EditText) rl.findViewById(R.id.contactRowName);
 		
-
 		tvName.setLongClickable(true);
 		tvName.setOnLongClickListener(new OnLongClickListener()
 		{
@@ -110,6 +110,11 @@ public class ContactActivity extends Activity
 		tvPhoneNumber.setText(contact.getPhone());
 		
 		ll.addView(rl);
+
+		LayoutInflater x = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		TextView tvLine = (TextView) x.inflate(R.layout.thelineb, null);
+		tvLine.setTextSize(8);
+		ll.addView(tvLine);
 	}
 
 //	void readContactFile()
@@ -205,6 +210,8 @@ public class ContactActivity extends Activity
                 
                 for (int i = 0; i < x; i++)
 				{
+                	if(!(ll.getChildAt(i) instanceof RelativeLayout)) continue;
+                	
                 	RelativeLayout rl = (RelativeLayout) ll.getChildAt(i);
 					EditText nameView = (EditText)rl.getChildAt(0);
 					String name = nameView.getText().toString();

@@ -3,19 +3,19 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/myshape"
+    android:background="#191970"
     android:id="@+id/rlpopcornrow">
 
     <TextView
         android:id="@+id/popcornrowdesc"
-        android:layout_width="110sp"
+        android:layout_width="105sp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="5sp"/>
 
     <TextView
         android:id="@+id/popcornrowprice"
-        android:layout_width="35sp"
+        android:layout_width="40sp"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/popcornrowdesc"
         android:layout_centerVertical="true"/>
@@ -56,6 +56,7 @@
         android:layout_height="35sp"
         android:layout_marginTop="3sp"
         android:layout_toRightOf="@+id/popcornrowtotalcost"
+        android:layout_centerHorizontal="true"
         android:text="+"/>
     
     <Button
@@ -64,6 +65,7 @@
         android:layout_height="35sp"
         android:layout_marginTop="3sp"
         android:layout_toRightOf="@+id/popcornrowplus"
+        android:layout_centerHorizontal="true"
         android:text="-"/>
      
 </RelativeLayout>

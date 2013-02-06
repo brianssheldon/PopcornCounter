@@ -136,9 +136,17 @@ public class PopcornUpdateActivity extends Activity
 			{public void onClick(View v){(new UpdatePopcornTotals()).updateRow(v, -1);}});
 			
 			ll.addView(rl);
+			
+			LayoutInflater x = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			TextView tvLine = (TextView) x.inflate(R.layout.thelineb, null);
+			ll.addView(tvLine);
 //			getLineDivider(ll);
 			i += 1;
 		}
+
+//		LayoutInflater x = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//		TextView tvLine = (TextView) x.inflate(R.layout.thelineb, null);
+//		ll.addView(tvLine);
 		
 		writeTotalLine(id, ll, i, totalQuantity, totalCost);
 	}

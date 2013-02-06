@@ -5,12 +5,12 @@
     android:layout_marginTop="5sp"
     android:layout_marginBottom="5sp"
     android:orientation="vertical"
-    android:background="@drawable/myshape"
+    android:background="#191970"
     android:id="@+id/rlpopcorntotalrow">
 
     <TextView
         android:id="@+id/popcornrowdesc"
-        android:layout_width="110sp"
+        android:layout_width="100sp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
 	    android:textSize="16sp"
@@ -35,7 +35,7 @@
     
     <TextView
         android:id="@+id/popcornrowquantity"
-        android:layout_width="20sp"
+        android:layout_width="25sp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/popcornrowtimes"/>
@@ -50,7 +50,7 @@
     
     <TextView
         android:id="@+id/popcornrowtotalcost"
-        android:layout_width="45sp"
+        android:layout_width="55sp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/popcornrowequals"/>
