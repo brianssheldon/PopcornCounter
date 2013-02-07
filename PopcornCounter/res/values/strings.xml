@@ -15,5 +15,8 @@
     <string name="exitPopcornList">exitPopcornList</string>
     <string name="update_popcorn_list">Update Popcorn List</string>
     <string name="contact_list">Contact List</string>
+    <string name="asterisc">*</string>
+    <string name="equal_dollarsign">= $</string>
+    <string name="minus_sign">-</string>
 
 </resources>

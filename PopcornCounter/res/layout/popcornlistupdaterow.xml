@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/popcornrowprice"
         android:layout_centerVertical="true"
-        android:text="*"/>
+        android:text="@string/asterisc"/>
     
     <TextView
         android:id="@+id/popcornrowquantity"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/popcornrowquantity"
-        android:text="= $"/>
+        android:text="@string/equal_dollarsign"/>
     
     <TextView
         android:id="@+id/popcornrowtotalcost"
@@ -55,17 +55,25 @@
         android:layout_width="35sp"
         android:layout_height="35sp"
         android:layout_marginTop="3sp"
+        android:layout_marginBottom="3sp"
         android:layout_toRightOf="@+id/popcornrowtotalcost"
         android:layout_centerHorizontal="true"
-        android:text="+"/>
+        android:layout_centerVertical="true"
+        android:lineSpacingExtra="3sp"
+        android:textSize="16sp"
+        android:text="@string/plus_sign"/>
     
     <Button
         android:id="@+id/popcornrowminus"
         android:layout_width="35sp"
         android:layout_height="35sp"
         android:layout_marginTop="3sp"
+        android:layout_marginBottom="3sp"
         android:layout_toRightOf="@+id/popcornrowplus"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:text="-"/>
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="16sp"
+        android:text="@string/minus_sign"/>
      
 </RelativeLayout>
