@@ -25,7 +25,6 @@
             </intent-filter>
         </activity>
  		<activity android:name=".PopcornUpdateActivity"></activity>
- 		<!--  <activity android:name=".AddPersonActivity"></activity> -->
  		<activity android:name=".EditListActivity"></activity>
  		<activity android:name=".ContactActivity"></activity>
     </application>
